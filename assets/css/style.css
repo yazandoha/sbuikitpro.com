@@ -1,0 +1,310 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family:mainfont;
+    src: url('../fonts/Metropolis-ExtraLight.otf');
+}
+
+body{
+    font-family: mainfont;
+    /* height: 5000px; */
+}
+/* هاض لكلاس عشان البوكس الي بكون ب الصفحة بتلاقي مثلا كل العناصر بعاد من اليمين والشمال بنفس القيمة زي كانو الصفحة كلها في بوكس فلوسط   */
+.container{
+    /* background-color: brown; */
+    /* height: 500px; */
+    width: 85%;
+    margin: auto;
+}
+.row{
+    display: flex;
+    /* background-color: brown; */
+    justify-content: space-between;
+    align-items: center;
+}
+a{
+/* لازالة كل الخطوط في الموقع  */
+    text-decoration: none;
+
+}
+ul{
+    list-style: none;
+}
+
+.btn{
+    background-color: #0061f2;
+    color: #ffff;
+    padding: 10px 17px;
+    border-radius: 6px;
+    text-transform: capitalize;
+    letter-spacing:1.2px;
+    border: 1px #0061f2;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #0054d1;
+    border: 1px #0054d1;
+    transition: 0.5s;
+    /* cursor: pointer; */
+
+}
+
+/* navbar css code */
+.top{
+    background-color: rgb(63, 71, 71);
+    width: 100%;
+    height: 40px;
+    animation: any-top 1.5s;
+}
+@keyframes any-top{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+nav{
+    background-color:white;
+    padding: 27px 0px;
+    /* margin-top: 50px; */
+    /* margin-bottom:40px; */
+/* هاي الخاصية عشان نثبت الناف بار وما ينزل معي ولازم نعطيها ودث 100 فلمية عشان تزبط  */
+    position: fixed;
+    width: 100%;
+    /* هاي الي تحت الخاصيتين بنستخدمهن لمة يكون فوق الناف بار كمان ناف بار ولمة نعمل سكرل وننزل الناف بار الاول بطلع مع الصفحة والثاني
+    بنزل معها فبضل في فراغ الي بتركو الناف بار الاول 
+    لمة طلع فبكون في فراغ بين الناف بار الثاني من فوق و اخر الصفحة من فوق 
+    فبنستخدم هاي البوزشن ستيكي ولازم نستخدم معها توب 0 عشان لمة ننزل في الصفحة الناف بار الاولى تختفي وتطلع مع الصفحة والثانية تطلع لاول الصفحة من فوق وتوقف فوق 
+    + هاي لازم نصير نستخدمها دايما عشان نحل مشكلة الفكسد مع الناف بار 
+    المشكلة انو الناف بار بطلع فوق السكشن الي تحتو فبتقدرش تعمل مارجن بين الناف بار والسكشن الي تحتو
+    */
+    position: sticky;
+    top: 0;
+    z-index: 9999999;
+}
+nav .logo{
+    /* background-color: blue; */
+    width: 20%;
+    /* text-transform: capitalize; */
+}
+nav .logo a{
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: blue;
+}
+
+nav .list-item{
+    /* background-color: rgb(59, 122, 173); */
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav .list-item .item{
+    margin-left: 58px;
+}
+nav .list-item .item a{
+    text-transform: capitalize;
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+}
+nav .list-item .item a i{
+    font-size: 13px;
+    margin-left: 5px;
+    /* هاي الخاصية عشان الوقت الي بدو يتحرك فيه هاض العنصر لمة نحط الماوس عليه  */
+    /* 
+    طيب ليش بنحط الترانزشن هان مش عند الهوفر .. لو بدنا نحطو عند 
+    الهوفر بتصير لمة تحط الماوس عليه يصير تغيير ب الزمن الي محددو 
+    بس لمة تشيل الماوس برجع بسرعة مش بنفس السرعة الي انت محددها ليتحرك بس تصير عليه الماوس 
+    عشان هيك بنحط الترانزمشن فلكلاس الي بدك تعمل تاثير عليه 
+    مش عند الهوفر عشان بس تحط الماوس وتشيلها التغييرين بنفس السرعة يكون 
+    */
+    transition: 0.5s;
+}
+/* هاي معناها انو لمة احط الماوس ع ال "إل اي" التاثير بكون على ال "اي "1*/
+nav .list-item .item:hover i{
+    transform: translateX(-5px);
+
+}
+
+nav .list-item .item{
+    /* عشان كلاس الدروب داون يتحرك ب النسبة ل ابوه الي هو الايتم  */
+    position: relative;
+}
+nav .list-item .dropdown{
+    position: absolute;
+    background-color: rgb(253, 253, 253);
+    width: 100px;
+    padding: 8px;
+    top: 40px;
+    opacity: 0;
+    transition: 0.5s;
+    box-shadow:-8px 0 3px rgb(177, 175, 175);
+}
+nav .list-item .item:hover .dropdown{
+    opacity: 1;
+    top: 20px;
+
+}
+
+/*  content code  */
+
+/* يظهر مشكلة في صور ال "اس في جي " انو لمة تحطها ما بتظهر فلازم تعطيها ودث عشان ظهر  */
+header{
+    margin-top: 0px;
+}
+header .content{
+    width: 60%;
+    /* background-color: aqua; */
+    animation: any-header 1s;
+}
+
+header .content h1{
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+header .content p{
+    width: 70%;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+/* هاي معناها انو طبق ع الانبوت الاول الي بتلاقيه فكلاس الكنتنت */
+header .content input:nth-child(1){
+    width:55%;
+    background-color: #eef2f8;
+    border-color: #eef2f8;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+header .img-header{
+    width: 40%;
+    /* background-color: brown; */
+}
+
+@keyframes any-header{
+
+    0%{
+       transform: translateX(-100%); 
+    }
+    100%{
+        transform: translateX(0%); 
+
+    }
+}
+/* feature */
+
+.feature{
+    background-color: #f2f6fc;
+    /* background-color: #0054d1; */
+    padding: 110px 0 62px;
+    position: relative;
+
+}
+.feature:before{
+    content: '';
+    background-color: #ffffff;
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    top: 0px;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+}
+.feature .box{
+    text-align: center;
+    width: 30%;
+}
+
+.feature .box .icon{ 
+    background:linear-gradient(90deg,blue,rgb(143, 56, 143));
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    color: white;
+}
+.feature .box h3{
+    font-size: 20px;
+    color: #363d47;
+    margin: 13px 0;
+    font-weight: 500;
+}
+.feature .box p{
+    color: #69707a;
+}
+
+footer{
+    background-color:rgba(0, 0,0, 0.8);
+    color: #ffffff99;
+    padding:100px 0;  
+     /*الانحناء  */
+     padding: 110px 0 62px;
+     position: relative; 
+}
+footer:before{
+    content: '';
+    background-color:#f2f6fc;
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    top: 0px;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+}
+footer .footer-first .row{
+    align-items: flex-start;
+
+}
+footer .footer-first .footer-item{
+    margin: 10px 0;
+}
+footer .footer-first .footer-item .icon-social{
+    margin-left: 10px;
+    color: #ffffff99;
+    transition: 1s;
+    /* اذا كان عندك "ايه" وبدك تعملها روتيت ما رح يزبط الا لمة تعمللها دسبلي انلاين بلوك زي هان في ايقونات مواقع التواصل */
+    display: inline-block;
+}
+footer .footer-first .footer-item .icon-social:hover{
+    transform: rotateY(180deg);
+}
+footer .footer-first .footer-item h3{
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+footer .footer-first .footer-item ul li{
+    margin-bottom: 10px;
+}
+footer .footer-first .footer-item ul li a{
+    color:#ffffff99;
+    transition: 0.4s;
+}
+footer .footer-first .footer-item ul li:hover a{
+    margin-left: 4px;
+}
+
+footer .footer-first{
+    border-bottom: 1px solid #ffffff99;
+    padding-bottom: 20px;
+}
+footer .footer-second{
+    margin-top: 3px;
+
+}
+footer .footer-second p a{
+    color: #ffffff99;
+}
